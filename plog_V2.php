@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2008 Rémi Bougard <rbougard@free.fr>
+ * Copyright (c) 2008 RÃ©mi Bougard <rbougard@free.fr>
  *
  * Permission to use, copy, modify, and distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -25,28 +25,28 @@ $maindomain = 'domaine1.fr';
 $login = 'XXXX';
 $password = 'XXXX';
 
-/* Date à partir de laquelle vous souhaitez récupérer vos logs. */
+/* Date Ã  partir de laquelle vous souhaitez rÃ©cupÃ©rer vos logs. */
 $start = '01-09-2007';
 
 /*
- * Répertoire "racine" qui va contenir tous les logs
- * (fichiers "globaux" + fichiers splittés par domaine.
+ * RÃ©pertoire "racine" qui va contenir tous les logs
+ * (fichiers "globaux" + fichiers splittÃ©s par domaine.
  */
 $root = 'logs';
 
 /*
- * Répertoire dans lequel vont être enregistrés les logs "globaux"
- * (non-splittés), à partir de la racine.
+ * RÃ©pertoire dans lequel vont Ãªtre enregistrÃ©s les logs "globaux"
+ * (non-splittÃ©s), Ã  partir de la racine.
  */
 $alldir = 'backup';
 
-/* Répertoire dans lequel vont être enregistés les "rapports" webalizer. */
+/* RÃ©pertoire dans lequel vont Ãªtre enregistÃ©s les "rapports" webalizer. */
 $reportdir = 'reports';
 
 /*
  * Commande pour lancer webalizer.
- * Sont ajoutés ensuite :
- * -p (mode incrémental)
+ * Sont ajoutÃ©s ensuite :
+ * -p (mode incrÃ©mental)
  * -t "domaine"
  * -o "reportdir/domaine/"
  */
@@ -132,7 +132,7 @@ process_file($input, $output, $vhost)
 		return FALSE;
 	}
 	foreach ($lines as $n => $line) {
-		$t = split(' ', $line);
+		$t = explode(' ', $line);
 		if (empty($t[1]))
 			continue;
 		$host = $t[1];
@@ -183,7 +183,7 @@ date_default_timezone_set('Europe/Paris');
 check_path($root, array($alldir));
 
 if ($check_file) {
-	$start = split('-', $start);
+	$start = explode('-', $start);
 	$d = $start[0];
 	$m = $start[1];
 	$y = $start[2];
@@ -297,7 +297,7 @@ if ($analyze_file) {
 			    || !is_file($vhpath . '/' . $file)
 			    || in_array($file . "\n", $index))
 				continue;
-			$t = split('-', $file);
+			$t = explode('-', $file);
 			$d = $t[1];
 			$m = $t[2];
 			$y = substr($t[3], 0, 4);
