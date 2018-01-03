@@ -206,7 +206,7 @@ if ($check_file) {
 
 	$stop = 0;
 	while (!$stop) {
-		$nbdays = date('t', mktime(0, 0, 0, $m, 0, $y));
+		$nbdays = date('t', mktime(0, 0, 0, $m, 1, $y));
 		for (; $d <= $nbdays; $d++) {
 			$date = sprintf("%02d-%02d-%04d", $d, $m, $y);
 			$path = $maindomain . '-' . $date . '.log.gz';
